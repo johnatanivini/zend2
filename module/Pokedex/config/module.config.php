@@ -2,12 +2,12 @@
 /**
  * Zend Framework (http://framework.zend.com/)
  *
- * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
+ * @link      http://github.com/zendframework/ZendSkeletonPokedex for the canonical source repository
  * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Application;
+namespace Pokedex;
 
 return [
     'router' => [
@@ -17,7 +17,7 @@ return [
                 'options' => [
                     'route'    => '/',
                     'defaults' => [
-                        'controller' => 'Application\Controller\Index',
+                        'controller' => 'Pokedex\Controller\Index',
                         'action'     => 'index',
                     ],
                 ],
@@ -25,13 +25,13 @@ return [
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
-            // using the path /application/:controller/:action
-            'application' => [
+            // using the path /pokedex/:controller/:action
+            'pokedex' => [
                 'type'    => 'Literal',
                 'options' => [
-                    'route'    => '/application',
+                    'route'    => '/pokedex',
                     'defaults' => [
-                        '__NAMESPACE__' => 'Application\Controller',
+                        '__NAMESPACE__' => 'Pokedex\Controller',
                         'controller'    => 'Index',
                         'action'        => 'index',
                     ],
@@ -56,12 +56,12 @@ return [
     ],
     'controllers' => [
         'invokables' => [
-            'Application\Controller\Index' => Controller\IndexController::class
+            'Pokedex\Controller\Index' => Controller\IndexController::class
         ],
     ],
     'view_manager' => [
         'template_map' => [
-            'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
+            'pokedex/index/index' => __DIR__ . '/../view/pokedex/index/index.phtml',
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
