@@ -11,6 +11,29 @@
  * file.
  */
 
-return array(
-    // ...
-);
+return [
+        'service_manager' => [
+                'factories' => [
+                    'Zend\Db\Adapter\Adapter' =>   'Zend\Db\Adapter\AdapterServiceFactory',
+                    'translator' => 'Zend\Mvc\Service\TranslatorServiceFactory'
+                ],
+                'abstract_factories' => [
+                    'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
+                    'Zend\Log\LoggerAbstractServiceFactory',
+                ]
+            ],
+            'db' => [
+                'driver' => 'Pdo',
+                'dsn' => 'pgsql:dbname=pokedex;hostname=localhost',
+            ],
+            'translator' => [
+                'locale' => 'pt_BR',
+                'translation_file_patterns' => [
+                   [
+                        'type'     => 'gettext',
+                        'base_dir' => __DIR__ . '/../language',
+                        'pattern'  => '%s.mo',
+                ],
+            ],
+        ],
+];
