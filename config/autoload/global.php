@@ -47,5 +47,12 @@ return [
                 'error/404'               => __DIR__ . '/../../module/Pokedex/view/error/404.phtml',
                 'error/index'             => __DIR__ . '/../../module/Pokedex/view/error/index.phtml',
             ],
+            'strategies' => [
+                'ViewJsonStrategy' 
+            ]
+        ],
+        "api_pokedex" => [
+            'url' => 'https://pokeapi.co/api/v2/',
+            'method' => 'GET'
         ]
 ];
